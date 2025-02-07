@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title></title>
+      <link rel="stylesheet" href="./src/output.css" />
+
+      <!-- GOOGLE FONTS -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+         rel="stylesheet"
+      />
+
+      <style>
+         *::before,
+         *::after,
+         * {
+            text-wrap: wrap;
+            text-wrap-mode: wrap;
+            text-wrap-style: pretty;
+         }
+
+         *::-webkit-scrollbar {
+            display: none;
+         }
+
+         body {
+            font-family: 'Host Grotesk';
+         }
+      </style>
+   </head>
+   <body class="bg-zinc-950">
+      <main class="flex">
+         <aside id="sidebar" class="block h-screen w-full max-w-[300px] overflow-hidden border-r border-r-zinc-800 px-4 py-4 transition-all duration-[500ms] ease-in-out">
+            <div class="sidebar-header relative flex h-auto w-full items-center justify-between">
+               <div class="px-4">
+                  <h2 class="text-white">New Conversation</h2>
+               </div>
+
+               <div id="closeSideBar" class="sticky top-0 right-0 flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full py-4 px-4 transition duration-300 ease-in-out hover:bg-zinc-800">
+                  <svg class="shrink-0 fill-zinc-600" xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor">
+                     <path
+                        d="M480-424 284-228q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536-480l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-424Z"
+                     />
+                  </svg>
+               </div>
+            </div>
+
+            <!-- CHAT HISTORY -->
+            <div class="mt-4 h-auto w-full self-end">
+               <ul>
+                  <li class="w-full cursor-pointer truncate rounded-full px-4 py-1 text-white hover:bg-zinc-800"><a href="#home" class="text-base text-zinc-500">Home</a></li>
+                  <li class="w-full cursor-pointer truncate rounded-full px-4 py-1 text-white hover:bg-zinc-800"><a href="#home" class="text-base text-zinc-500">About</a></li>
+                  <li class="w-full cursor-pointer truncate rounded-full px-4 py-1 text-white hover:bg-zinc-800"><a href="#home" class="text-base text-zinc-500">Contents</a></li>
+                  <li class="w-full cursor-pointer truncate rounded-full px-4 py-1 text-white hover:bg-zinc-800"><a href="#home" class="text-base text-zinc-500">Management</a></li>
+                  <li class="w-full cursor-pointer truncate rounded-full px-4 py-1 text-white hover:bg-zinc-800"><a href="#home" class="text-base text-zinc-500">Documents</a></li>
+                  <li class="w-full cursor-pointer truncate rounded-full px-4 py-1 text-white hover:bg-zinc-800"><a href="#home" class="text-base text-zinc-500">PC</a></li>
+               </ul>
+            </div>
+         </aside>
+
+         <section id="home" class="h-screen w-screen">
+            <header class="fixed top-0 h-auto w-full px-[1%] py-4">
+               <div class="title flex items-center justify-start gap-x-2">
+                  <div class="logo">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-white" viewBox="0 0 50 50" width="26px" height="26px">
+                        <path
+                           d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z"
+                        />
+                     </svg>
+                  </div>
+
+                  <div class="heading w-full overflow-x-auto">
+                     <h1 class="text-xl font-bold text-zinc-50">DeepseekAI</h1>
+                  </div>
+
+               </div>
+            </header>
+
+            <div class="pt-36">
+               
+            </div>
+         </section>
+      </main>
+
+      <script src="./js/script.js"></script>
+   </body>
+</html>
