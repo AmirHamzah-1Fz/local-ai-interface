@@ -1,11 +1,7 @@
-const closeSideBar = document.getElementById('closeSideBar');
-const sidebar = document.getElementById('sidebar');
+import { closeSideBar } from './utils.js';
+import { newDate } from './utils.js';
+import { createUserChatBox } from './utils.js';
 
-closeSideBar.addEventListener('click', () => {
-   sidebar.classList.toggle('w-0');
-   sidebar.classList.toggle('w-full');
-});
-if (sidebar.classList.value.includes('w-0')) {
-   sidebar.classList.remove('px-4');
-   sidebar.classList.add('px-0');
-}
+closeSideBar();
+
+createUserChatBox("LOREM ISPUsfhwifhwidlo");
