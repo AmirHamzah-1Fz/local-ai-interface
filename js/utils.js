@@ -80,6 +80,8 @@ export function sendMessage() {
       const userInput = document.getElementById('userInput');
       const dontSendMessage = document.getElementById('dontSendMessage');
 
+      document.getElementById('greet').classList.add('hidden');
+
       createUserChatBox();
       userInput.value = '';
       dontSendMessage.classList.remove('hidden');

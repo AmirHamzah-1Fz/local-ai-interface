@@ -9,10 +9,7 @@
       <!-- GOOGLE FONTS -->
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-         href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-         rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
 
       <script src="./js/utils.js"></script>
 
@@ -29,12 +26,17 @@
             display: none;
          }
 
-         body {
-            font-family: 'Host Grotesk', sans-serif;
+         svg,
+         img,
+         a,
+         button {
+            user-select: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
          }
 
-         p {
-            word-break: break-all;
+         body {
+            font-family: 'Host Grotesk', sans-serif;
          }
 
          pre {
@@ -51,23 +53,22 @@
          textarea::placeholder {
             color: #4a5565;
          }
+
+         .nowrap {
+            white-space: nowrap;
+         }
       </style>
    </head>
    <body class="bg-gray-950">
       <main class="flex">
-         <aside
-            id="sidebar"
-            class="block h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden"
-         >
+         <aside id="sidebar" class="block h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
             <div class="sidebar-header relative flex h-auto w-full items-center justify-between">
-               <div class="px-4">
+               <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent px-4 hover:border-gray-800 hover:bg-gray-900">
+                  <h2 class="text-2xl text-white">&plus;</h2>
                   <h2 class="text-white">New Conversation</h2>
                </div>
 
-               <div
-                  id="closeSideBar"
-                  class="sticky top-0 right-0 flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full px-4 py-4 transition duration-300 ease-in-out hover:bg-gray-800"
-               >
+               <div id="closeSideBar" class="sticky top-0 right-0 flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full px-4 py-4 transition duration-300 ease-in-out hover:bg-gray-800">
                   <svg class="shrink-0 fill-gray-600" xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor">
                      <path
                         d="M480-424 284-228q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536-480l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-424Z"
@@ -77,32 +78,68 @@
             </div>
 
             <!-- CHAT HISTORY -->
-            <div class="mt-4 h-auto w-full self-end">
-               <ul>
-                  <li class="flex w-full cursor-pointer items-center justify-start gap-4 truncate rounded-full px-4 py-1 text-white hover:bg-gray-800">
-                     <a href="#home" class="text-base text-gray-500">Home</a>
-                  </li>
-                  <li class="flex w-full cursor-pointer items-center justify-start gap-4 truncate rounded-full px-4 py-1 text-white hover:bg-gray-800">
-                     <a href="#home" class="text-base text-gray-500">About</a>
-                  </li>
-                  <li class="flex w-full cursor-pointer items-center justify-start gap-4 truncate rounded-full px-4 py-1 text-white hover:bg-gray-800">
-                     <a href="#home" class="text-base text-gray-500">Contents</a>
-                  </li>
-                  <li class="flex w-full cursor-pointer items-center justify-start gap-4 truncate rounded-full px-4 py-1 text-white hover:bg-gray-800">
-                     <a href="#home" class="text-base text-gray-500">Management</a>
-                  </li>
-                  <li class="flex w-full cursor-pointer items-center justify-start gap-4 truncate rounded-full px-4 py-1 text-white hover:bg-gray-800">
-                     <a href="#home" class="text-base text-gray-500">Documents</a>
-                  </li>
-                  <li class="flex w-full cursor-pointer items-center justify-start gap-4 truncate rounded-full px-4 py-1 text-white hover:bg-gray-800">
-                     <a href="#home" class="text-base text-gray-500">PC</a>
-                  </li>
-               </ul>
+            <div class="mt-4 flex h-auto w-full flex-col">
+               <span
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+               >
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <p class="nowrap truncate">Pentingnya adaptasi teknologi</p>
+               </span>
+               <span
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+               >
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <p class="nowrap truncate">What is React JS?</p>
+               </span>
+               <span
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+               >
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <p class="nowrap truncate">How to cumultive growth mindset</p>
+               </span>
+               <span
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+               >
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <p class="nowrap truncate">Next.js a React Framework</p>
+               </span>
+               <span
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+               >
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <p class="nowrap truncate">Menghadapi tantangan global</p>
+               </span>
+               <span
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+               >
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <p class="nowrap truncate">Masalah pada aplikasi Flutter</p>
+               </span>
             </div>
          </aside>
 
-         <section id="home" class="h-screen w-screen">
-            <header class="fixed top-0 z-[999] flex h-auto w-full items-center justify-center px-[1%] py-4">
+         <section id="home" class="relative min-h-screen w-full">
+            <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center">
+               <h1 class="text-5xl font-bold text-white">Hi, I'am PenAI.</h1>
+               <p class="mt-2 text-lg text-gray-500">What can I help for you?</p>
+
+               <div class="flex w-full items-center justify-center gap-2 overflow-hidden">
+                  <span class="mt-3 flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out hover:bg-gray-800/80">
+                     <img src="assets\ui\photo_camera_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p class="w-[130%] text-sm text-gray-500">Photography</p></span
+                  >
+                  <span class="mt-3 flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out hover:bg-gray-800/80">
+                     <img src="assets\ui\code.svg" alt="code" class="invert" />
+                     <p class="w-[130%] text-sm text-gray-500">Code</p></span
+                  >
+                  <span class="mt-3 flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out hover:bg-gray-800/80">
+                     <img src="assets\ui\emoji_objects_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p class="w-[130%] text-sm text-gray-500">Creative Poem</p></span
+                  >
+               </div>
+            </div>
+
+            <header class="fixed top-0 z-[999] flex h-auto w-full items-center justify-center bg-gray-950 px-[1%] py-4">
                <div class="title flex w-[95%] items-center justify-start gap-x-2">
                   <a href="#home">
                      <div class="flex h-auto w-auto cursor-pointer gap-x-2 transition duration-300 ease-in-out hover:scale-[1.050]">
@@ -131,47 +168,47 @@
                </div>
 
                <!-- PROMPT -->
-               <div id="userInputContainer" class="absolute bottom-0 z-[9999] flex h-[180px] w-full justify-center">
-                  <div
-                     id="inputContainer"
-                     class="relative flex h-[120px] w-[80%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-sm:w-[85%]"
-                  >
-                     <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full px-4 py-4 text-white focus:outline-none" accesskey="Enter"></textarea>
+               <div id="userInputContainer" class="absolute bottom-0 z-[9999] flex h-[180px] w-full justify-center max-md:fixed">
+                  <div class="relative top-0 flex h-[180px] w-full justify-center">
+                     <div id="inputContainer" class="relative flex h-[120px] w-[80%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-sm:w-[85%]">
+                        <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full px-4 py-4 text-white focus:outline-none" accesskey="Enter"></textarea>
 
-                     <!-- BOTTOM PROMPT -->
-                     <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 bg-gradient-to-t from-60% from-gray-900 to-transparent px-4 py-3">
-                        <!-- LEFT ITEMS -->
-                        <div class="pointer-events-auto flex gap-x-0">
-                           <div class="p-2 hover:bg-gray-800 transition duration-300 ease-in-out rounded-full cursor-pointer" title="Insert Documents">
-                              <img src="assets\ui\link_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                        <!-- BOTTOM PROMPT -->
+                        <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 bg-gradient-to-t from-gray-900 from-60% to-transparent px-4 py-3">
+                           <!-- LEFT ITEMS -->
+                           <div class="pointer-events-auto flex gap-x-0">
+                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Documents">
+                                 <img src="assets\ui\link_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                              </div>
+
+                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Photo">
+                                 <img src="assets\ui\image_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                              </div>
                            </div>
 
-                           <div class="p-2 hover:bg-gray-800 transition duration-300 ease-in-out rounded-full cursor-pointer" title="Insert Photo">
-                              <img src="assets\ui\image_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
-                           </div>
+                           <!-- RIGHT ITEMS -->
+                           <div class="pointer-events-auto flex gap-x-2">
+                              <div class="cursor-pointer rounded-full p-2 hover:bg-gray-800">
+                                 <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0" title="Reset Prompt" />
+                              </div>
 
-                        </div>
-
-                        <!-- RIGHT ITEMS -->
-                        <div class="pointer-events-auto flex gap-x-2">
-                           <div class="cursor-pointer rounded-full p-2 hover:bg-gray-800">
-                              <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0" title="Reset Prompt" />
-                           </div>
-
-                           <div id="dontSendMessage"
-                              class="flex h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out"
-                              title="Send"
-                           >
-                              <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
-                           </div>
-                           <div id="sendMessage"
-                              class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-sky-500 p-2 transition duration-300 ease-in-out hover:border-sky-400 hover:bg-sky-600/90 hover:shadow-md hover:shadow-sky-400/20"
-                              title="Send"
-                           >
-                              <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                              <div id="dontSendMessage" class="flex h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out" title="Send">
+                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                              </div>
+                              <div
+                                 id="sendMessage"
+                                 class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-sky-500 p-2 transition duration-300 ease-in-out hover:border-sky-400 hover:bg-sky-600/90 hover:shadow-md hover:shadow-sky-400/20"
+                                 title="Send"
+                              >
+                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                              </div>
                            </div>
                         </div>
                      </div>
+
+                     <div class="pointer-events-none absolute -top-24 -z-[1] h-[120px] w-full bg-gradient-to-t from-gray-950 from-20% to-transparent blur-md"></div>
+
+                     <div class="pointer-events-none absolute bottom-0 -z-[2] h-[160px] w-full bg-gray-950"></div>
                   </div>
                </div>
             </div>
