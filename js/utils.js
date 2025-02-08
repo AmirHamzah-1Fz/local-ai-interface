@@ -13,11 +13,11 @@ export function closeSideBar() {
          const inputContainer = document.getElementById('inputContainer');
 
          setTimeout(() => {
-            globalChatContainer.classList.remove('w-[80%]');
-            globalChatContainer.classList.add('w-[60%]');
+            globalChatContainer.classList.remove('w-[65%]');
+            globalChatContainer.classList.add('w-[50%]');
 
-            inputContainer.classList.remove('w-[80%]');
-            inputContainer.classList.add('w-[60%]');
+            inputContainer.classList.remove('w-[50%]');
+            inputContainer.classList.add('w-[50%]');
          }, 400);
       }
    });
@@ -36,10 +36,10 @@ export function createUserChatBox(message) {
    userChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
 
    const userChatBox = document.createElement('div');
-   userChatBox.classList.add('h-auto', 'w-auto', 'max-w-[80%]', 'self-end', 'rounded-xl', 'border', 'border-sky-500', 'bg-gradient-to-r', 'from-sky-600', 'to-blue-600', 'px-3', 'py-2', 'shadow-lg', 'shadow-sky-500/20');
+   userChatBox.classList.add('h-auto', 'w-auto', 'max-w-[90%]', 'self-end', 'rounded-xl', 'border', 'border-sky-500', 'bg-gradient-to-r', 'from-sky-600', 'to-blue-600', 'px-3', 'py-2', 'shadow-lg', 'shadow-sky-500/20');
 
    const userMessage = document.createElement('pre');
-   userMessage.classList.add('max-w-[60ch]', 'text-base', 'font-thin', 'text-white');
+   userMessage.classList.add('max-w-[60ch]', 'text-base', 'leading-relaxed', 'font-thin', 'text-gray-50');
 
    const userInput = document.getElementById('userInput').value;
    message = userInput;
@@ -81,6 +81,7 @@ export function sendMessage() {
       const dontSendMessage = document.getElementById('dontSendMessage');
 
       document.getElementById('greet').classList.add('hidden');
+      window.scrollTo(0, document.body.scrollHeight);
 
       createUserChatBox();
       userInput.value = '';
@@ -89,7 +90,8 @@ export function sendMessage() {
 
       setTimeout(() => {
          getAiRes(aiRes);
-      }, 500);
+         window.scrollTo(0, document.body.scrollHeight);
+      }, 1000);
    });
 }
 
@@ -100,10 +102,10 @@ function getAiRes() {
    aiChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
 
    const aiChatBox = document.createElement('div');
-   aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[80%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2', 'shadow-lg');
+   aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[90%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2', 'shadow-lg');
 
    const aiMessage = document.createElement('pre');
-   aiMessage.classList.add('max-w-[60ch]', 'text-base', 'font-thin', 'text-white');
+   aiMessage.classList.add('max-w-[60ch]', 'text-base', 'leading-relaxed', 'font-thin', 'text-gray-100');
 
    if (aiRes === '') {
       return;
@@ -119,6 +121,6 @@ function getAiRes() {
    aiChatBoxContainer.appendChild(aiChatBox);
    aiChatBoxContainer.appendChild(timeStamp);
    aiChatBox.appendChild(aiMessage);
-};
+}
 
 let aiRes = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Est hic provident aliquam asperiores neque nemo quaerat adipisci beatae consequuntur harum id nisi ipsum, facere, dolore, vel voluptates deleniti. Quos corrupti accusamus vitae incidunt blanditiis sapiente esse possimus corporis dolore alias rerum aspernatur quod quae, provident explicabo necessitatibus quasi itaque laboriosam voluptatem sequi. Atque laudantium adipisci commodi maiores ipsam veritatis. Facere doloremque aliquam commodi sequi saepe modi voluptate delectus, possimus atque.`;

@@ -26,6 +26,10 @@
             display: none;
          }
 
+         html {
+            scroll-behavior: smooth;
+         }
+
          svg,
          img,
          a,
@@ -62,7 +66,7 @@
    <body class="bg-gray-950">
       <main class="flex">
          <!-- SIDEBAR -->
-         <aside id="sidebar" class="hidden h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 bg-gray-950 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
+         <aside id="sidebar" class="sticky top-0 left-0 z-[99999] h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 bg-gray-950 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
             <div class="sidebar-header relative flex h-auto w-full items-center justify-between">
                <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent px-4 hover:border-gray-800 hover:bg-gray-900">
                   <h2 class="text-2xl text-white">&plus;</h2>
@@ -81,37 +85,37 @@
             <!-- CHAT HISTORY -->
             <div class="mt-4 flex h-auto w-full flex-col">
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-base text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">Pentingnya adaptasi teknologi</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-base text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">What is React JS?</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-base text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">How to cumultive growth mindset</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-base text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">Next.js a React Framework</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-base text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">Menghadapi tantangan global</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-base text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">Masalah pada aplikasi Flutter</p>
@@ -119,10 +123,10 @@
             </div>
          </aside>
 
-         <section id="home" class="relative min-h-screen w-full">
+         <section id="home" class="relative z-[100] min-h-screen w-full overflow-hidden">
             <!-- GREETING -->
             <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center">
-               <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'am Thenders.</h1>
+               <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'm Thenders.</h1>
                <pre class="mt-2 text-lg text-gray-500 max-sm:text-base">What can I help for you? :)</pre>
 
                <!-- QUICK CHAT -->
@@ -217,12 +221,12 @@
 
             <div class="relative flex h-full w-full items-start justify-center pt-36">
                <!-- CHAT -->
-               <div id="globalChatContainer" class="flex h-full w-[50%] flex-col gap-y-10 pb-60 transition-all duration-[200ms] ease-out max-md:w-[85%]"></div>
+               <div id="globalChatContainer" class="flex h-full w-[65%] flex-col gap-y-10 pb-60 transition-all duration-[200ms] ease-out max-md:w-[85%]"></div>
 
                <!-- PROMPT -->
-               <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center max-md:fixed">
+               <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center">
                   <div class="relative top-0 flex h-[180px] w-full justify-center">
-                     <div id="inputContainer" class="relative flex h-[120px] w-[50%] max-lg:w-[60%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
+                     <div id="inputContainer" class="relative flex h-[120px] w-[50%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
                         <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-white ring-1 ring-transparent focus:ring-blue-800 focus:outline-none" accesskey="Enter"></textarea>
 
                         <!-- BOTTOM PROMPT -->
