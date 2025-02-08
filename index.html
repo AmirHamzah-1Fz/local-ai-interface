@@ -62,7 +62,7 @@
    <body class="bg-gray-950">
       <main class="flex">
          <!-- SIDEBAR -->
-         <aside id="sidebar" class="block h-screen w-full max-w-[300px] bg-gray-950 overflow-hidden border-r border-r-gray-800 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
+         <aside id="sidebar" class="hidden h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 bg-gray-950 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
             <div class="sidebar-header relative flex h-auto w-full items-center justify-between">
                <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent px-4 hover:border-gray-800 hover:bg-gray-900">
                   <h2 class="text-2xl text-white">&plus;</h2>
@@ -122,41 +122,69 @@
          <section id="home" class="relative min-h-screen w-full">
             <!-- GREETING -->
             <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center">
-               <h1 class="text-5xl font-bold text-white">Hi, I'am Thenders.</h1>
-               <pre class="mt-2 text-lg text-gray-500">What can I help for you? :)</pre>
+               <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'am Thenders.</h1>
+               <pre class="mt-2 text-lg text-gray-500 max-sm:text-base">What can I help for you? :)</pre>
 
                <!-- QUICK CHAT -->
-               <div class="flex w-full items-center justify-center gap-2 overflow-hidden mt-3">
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+               <div class="mt-3 flex w-full items-center justify-center gap-2 overflow-hidden">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\photo_camera_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Photography</p></span
                   >
 
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\code.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Code</p></span
                   >
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\emoji_objects_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Creative Poem</p></span
                   >
                </div>
 
                <!-- QUICK CHAT -->
-               <div class="flex w-full items-center justify-center gap-2 overflow-hidden mt-3">
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+               <div class="mt-3 flex w-full items-center justify-center gap-2 overflow-hidden">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\webhook_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Technology</p></span
                   >
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Security</p></span
                   >
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Finance</p></span
                   >
-                  <span style="user-select: none; -webkit-user-drag: none;" id="suggestionChatContainer" class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 transition duration-300 ease-in-out text-gray-500 hover:bg-gray-700/90 hover:text-gray-400 hover:border-gray-700 active:scale-[1.1]">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.1]"
+                  >
                      <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Science</p></span
                   >
@@ -189,17 +217,16 @@
 
             <div class="relative flex h-full w-full items-start justify-center pt-36">
                <!-- CHAT -->
-               <div id="globalChatContainer" class="flex h-full w-[80%] flex-col gap-y-10 transition-all duration-[200ms] ease-out max-sm:w-[85%] pb-60">
-               </div>
+               <div id="globalChatContainer" class="flex h-full w-[50%] flex-col gap-y-10 pb-60 transition-all duration-[200ms] ease-out max-md:w-[85%]"></div>
 
                <!-- PROMPT -->
-               <div id="userInputContainer" class="absolute bottom-0 z-[9999] flex h-[180px] w-full justify-center max-md:fixed">
+               <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center max-md:fixed">
                   <div class="relative top-0 flex h-[180px] w-full justify-center">
-                     <div id="inputContainer" class="relative flex h-[120px] w-[80%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-sm:w-[85%]">
-                        <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full rounded-xl w-full px-4 py-4 text-white focus:outline-none ring-1 ring-transparent focus:ring-blue-800" accesskey="Enter"></textarea>
+                     <div id="inputContainer" class="relative flex h-[120px] w-[50%] max-lg:w-[60%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
+                        <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-white ring-1 ring-transparent focus:ring-blue-800 focus:outline-none" accesskey="Enter"></textarea>
 
                         <!-- BOTTOM PROMPT -->
-                        <div class="pointer-events-none absolute bottom-0 rounded-xl z-[2] flex w-full items-center justify-between gap-2 bg-gradient-to-t from-gray-900 from-60% to-transparent px-4 py-3">
+                        <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 rounded-xl bg-gradient-to-t from-gray-900 from-60% to-transparent px-4 py-3">
                            <!-- LEFT ITEMS -->
                            <div class="pointer-events-auto flex gap-x-0">
                               <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Documents">
