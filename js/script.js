@@ -52,7 +52,7 @@ function createUserChatBox(prompt) {
    userChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
 
    const userChatBox = document.createElement('div');
-   userChatBox.classList.add('h-auto', 'w-auto', 'max-w-[90%]', 'self-end', 'rounded-xl', 'border', 'border-sky-500', 'bg-gradient-to-r', 'from-sky-600', 'to-blue-600', 'px-3', 'py-2', 'shadow-lg', 'shadow-sky-500/20');
+   userChatBox.classList.add('h-auto', 'w-auto', 'max-w-[85%]', 'self-end', 'rounded-xl', 'border', 'border-sky-500', 'bg-gradient-to-r', 'from-sky-600', 'to-blue-600', 'px-3', 'py-2', 'shadow-lg', 'shadow-sky-500/20');
 
    const userMessage = document.createElement('pre');
    userMessage.classList.add('max-w-[60ch]', 'text-base', 'leading-relaxed', 'font-thin', 'text-gray-50');
@@ -118,7 +118,7 @@ function getAiRes() {
    aiChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
 
    const aiChatBox = document.createElement('div');
-   aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[90%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2', 'shadow-lg');
+   aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[85%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2', 'shadow-lg');
 
    const aiMessage = document.createElement('pre');
    aiMessage.classList.add('max-w-[60ch]', 'text-base', 'leading-relaxed', 'font-thin', 'text-gray-100');
@@ -127,7 +127,7 @@ function getAiRes() {
 
    const timeStamp = document.createElement('p');
    timeStamp.classList.add('text-start', 'text-gray-500', 'mt-2', 'text-xs', 'px-3');
-   timeStamp.textContent = `You, ${newDate()}`;
+   timeStamp.textContent = `${newDate()}`;
 
    globalChatContainer.appendChild(aiChatBoxContainer);
    aiChatBoxContainer.appendChild(aiChatBox);
@@ -135,7 +135,7 @@ function getAiRes() {
    aiChatBox.appendChild(aiMessage);
 }
 
-let aiRes = `Haloooo`;
+let aiRes = `Sorry, the feature for chat is under development. Please still patience and wait for the next updates.`;
 
 closeSideBar();
 sendMessage();
