@@ -55,7 +55,7 @@ function createUserChatBox(prompt) {
    userChatBox.classList.add('h-auto', 'w-auto', 'max-w-[85%]', 'self-end', 'rounded-xl', 'border', 'border-sky-500', 'bg-gradient-to-r', 'from-sky-600', 'to-blue-600', 'px-3', 'py-2', 'shadow-lg', 'shadow-sky-500/20');
 
    const userMessage = document.createElement('pre');
-   userMessage.classList.add('max-w-[60ch]', 'text-base', 'leading-relaxed', 'font-thin', 'text-gray-50');
+   userMessage.classList.add('max-w-[60ch]', 'text-base', 'max-sm:text-sm', 'leading-relaxed', 'font-thin', 'text-gray-50');
 
    const userInput = document.getElementById('userInput').value;
    prompt = userInput;
@@ -121,7 +121,7 @@ function getAiRes() {
    aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[85%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2', 'shadow-lg');
 
    const aiMessage = document.createElement('pre');
-   aiMessage.classList.add('max-w-[60ch]', 'text-base', 'leading-relaxed', 'font-thin', 'text-gray-100');
+   aiMessage.classList.add('max-w-[60ch]', 'text-base', 'max-sm:text-sm', 'leading-relaxed', 'font-thin', 'text-gray-100');
 
    aiMessage.textContent = `${aiRes}`;
 
