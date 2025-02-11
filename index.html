@@ -47,28 +47,28 @@
             font-family: 'Host Grotesk', sans-serif;
             white-space: wrap; /* Agar teks membungkus ke baris baru jika perlu */
             word-break: break-all;
-            hyphens: auto; /* Enable hyphenation */
+            text-wrap-style: pretty;
          }
 
          textarea {
             resize: none;
          }
 
-         .nowrap {
-            white-space: nowrap;
+         textarea::placeholder {
+            color: #4a5565;
          }
 
-         img {
-            pointer-events: none;
+         .nowrap {
+            white-space: nowrap;
          }
       </style>
    </head>
    <body class="bg-gray-950">
       <main class="flex">
          <!-- SIDEBAR -->
-         <aside id="sidebar" class="sticky top-0 left-0 z-[99999] h-screen w-full max-w-[280px] overflow-hidden border-r border-r-gray-800 bg-gray-900/40 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
+         <aside id="sidebar" class="sticky top-0 left-0 z-[99999] h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 bg-gray-950 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
             <div class="sidebar-header relative flex h-auto w-full items-center justify-between">
-               <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent px-4 hover:bg-gray-800">
+               <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent px-4 hover:border-gray-800 hover:bg-gray-900">
                   <h2 class="text-2xl text-white">&plus;</h2>
                   <h2 class="text-white">New Conversation</h2>
                </div>
@@ -83,7 +83,7 @@
             </div>
 
             <!-- CHAT HISTORY -->
-            <!-- <div class="mt-4 flex h-auto w-full flex-col">
+            <div class="mt-4 flex h-auto w-full flex-col">
                <span
                   class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
                >
@@ -120,194 +120,179 @@
                   <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
                   <p class="nowrap truncate">Masalah pada aplikasi Flutter</p>
                </span>
-            </div> -->
+            </div>
          </aside>
 
-         <section id="home" class="min-h-screen w-full overflow-hidden">
-            <div class="relative h-full w-full">
-               <!-- GREETING -->
-               <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center gap-2">
-                  <div class="flex flex-col items-center justify-center">
-                     <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'm Thenders.</h1>
-                     <pre class="mt-2 mb-2 text-lg text-gray-500 max-sm:text-base">How can I help you for today? :)</pre>
-                  </div>
+         <section id="home" class="relative z-[100] min-h-screen w-full overflow-hidden">
+            <!-- GREETING -->
+            <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center">
+               <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'm Thenders.</h1>
+               <pre class="mt-2 text-lg text-gray-500 max-sm:text-base">How can I help you for today? :)</pre>
 
-                  <!-- QUICK CHAT -->
-                  <div class="flex w-full items-center justify-center gap-2">
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\photo_camera_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Photography</p></span
-                     >
+               <!-- QUICK CHAT -->
+               <div class="mt-3 flex w-full items-center justify-center gap-2">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\photo_camera_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Photography</p></span
+                  >
 
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\code.svg" alt="code" class="invert" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Code</p></span
-                     >
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\emoji_objects_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Creative Poem</p></span
-                     >
-                  </div>
-
-                  <!-- QUICK CHAT -->
-                  <div class="flex w-full items-center justify-center gap-2">
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\webhook_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Technology</p></span
-                     >
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Security</p></span
-                     >
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Finance</p></span
-                     >
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Science</p></span
-                     >
-                  </div>
-
-                  <!-- QUICK CHAT -->
-                  <!-- <div class="flex w-full items-center justify-center gap-2">
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\webhook_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Technology</p></span
-                     >
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Security</p></span
-                     >
-                     <span
-                        style="user-select: none; -webkit-user-drag: none"
-                        id="suggestionChatContainer"
-                        class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-200 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                     >
-                        <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                        <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Finance</p></span
-                     >
-                  </div> -->
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\code.svg" alt="code" class="invert" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Code</p></span
+                  >
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\emoji_objects_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Creative Poem</p></span
+                  >
                </div>
 
-               <!-- TOP HEADER -->
-               <header class="fixed top-0 z-[999] flex h-auto w-full items-center justify-between bg-gray-950 px-[1%] py-4">
-                  <div class="title flex w-[95%] items-center justify-start gap-x-2">
-                     <a href="#home">
-                        <div class="flex h-auto w-auto cursor-pointer gap-x-2">
-                           <!-- LOGO -->
-                           <div class="logo">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 fill-white" viewBox="0 0 50 50" width="26px" height="26px">
-                                 <path
-                                    d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z"
-                                 />
-                              </svg>
-                           </div>
+               <!-- QUICK CHAT -->
+               <div class="mt-3 flex w-full items-center justify-center gap-2">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\webhook_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Technology</p></span
+                  >
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Security</p></span
+                  >
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Finance</p></span
+                  >
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Science</p></span
+                  >
+               </div>
 
-                           <!-- VERSION AND AI TITLE -->
-                           <div class="heading flex w-full items-center gap-x-2 overflow-x-auto">
-                              <h1 class="text-xl font-bold text-gray-50">Thenders AI</h1>
-                              <span id="versionTag" class="rounded-lg bg-blue-900/60 px-2 py-0 text-blue-500">v0.1.2</span>
-                           </div>
+               <!-- QUICK CHAT -->
+               <!-- <div class="mt-3 flex w-full items-center justify-center gap-2">
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Math</p></span
+                  >
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Physics</p></span
+                  >
+                  <span
+                     style="user-select: none; -webkit-user-drag: none"
+                     id="suggestionChatContainer"
+                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                  >
+                     <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Web 3</p></span
+                  >
+               </div> -->
+            </div>
+
+            <!-- TOP HEADER -->
+            <header class="fixed top-0 z-[999] flex h-auto w-full items-center justify-center bg-gray-950 px-[1%] py-4">
+               <div class="title flex w-[95%] items-center justify-start gap-x-2">
+                  <a href="#home">
+                     <div class="flex h-auto w-auto cursor-pointer gap-x-2">
+                        <!-- LOGO -->
+                        <div class="logo">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 fill-white" viewBox="0 0 50 50" width="26px" height="26px">
+                              <path
+                                 d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z"
+                              />
+                           </svg>
                         </div>
-                     </a>
-                  </div>
-               </header>
 
-               <div class="relative flex h-full w-full items-start justify-center pt-36">
-                  <!-- CHAT -->
-                  <div id="globalChatContainer" class="flex h-full w-[65%] flex-col gap-y-10 pb-60 transition-all duration-[200ms] ease-out max-md:w-[85%]"></div>
-
-                  <!-- PROMPT -->
-                  <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center">
-                     <div id="inputContainerss" class="relative top-0 z-[100] flex h-[180px] w-full justify-center">
-                        <div id="inputContainer" class="relative flex h-[120px] w-[50%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
-                           <textarea
-                              placeholder="Hello World!"
-                              id="userInput"
-                              type="text"
-                              class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-white ring-1 ring-transparent focus:ring-blue-800 focus:outline-none"
-                              accesskey="Enter"
-                           ></textarea>
-
-                           <!-- BOTTOM PROMPT -->
-                           <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 rounded-xl bg-gradient-to-t from-gray-900 from-60% to-transparent px-4 py-3">
-                              <!-- LEFT ITEMS -->
-                              <div class="pointer-events-auto flex gap-x-0">
-                                 <button type="button">
-                                    <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Documents">
-                                       <img src="assets\ui\link_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
-                                    </div>
-                                 </button>
-
-                                 <button type="button">
-                                    <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Photo">
-                                       <img src="assets\ui\image_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
-                                    </div>
-                                 </button>
-                              </div>
-
-                              <!-- RIGHT ITEMS -->
-                              <div class="pointer-events-auto flex gap-x-2">
-                                 <div class="cursor-pointer rounded-full p-2 hover:bg-gray-800">
-                                    <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0" title="Reset Prompt" />
-                                 </div>
-
-                                 <div id="dontSendMessage" class="flex h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out" title="Send">
-                                    <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
-                                 </div>
-
-                                 <div
-                                    id="sendMessage"
-                                    class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-sky-500 p-2 transition duration-300 ease-in-out hover:border-sky-400 hover:bg-sky-600/90 hover:shadow-md hover:shadow-sky-400/20"
-                                    title="Send"
-                                 >
-                                    <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
-                                 </div>
-                              </div>
-                           </div>
+                        <!-- VERSION AND AI TITLE -->
+                        <div class="heading flex w-full items-center gap-x-2 overflow-x-auto">
+                           <h1 class="text-xl font-bold text-gray-50">Thenders AI</h1>
+                           <span id="suggestionChatContainer" class="rounded-lg bg-blue-900/60 px-2 py-0 text-blue-500">v0.1.2</span>
                         </div>
-
-                        <div class="pointer-events-none absolute -top-24 -z-[1] h-[120px] w-full bg-gradient-to-t from-gray-950 from-20% to-transparent blur-md"></div>
-
-                        <div class="pointer-events-none absolute bottom-0 -z-[2] h-[160px] w-full bg-gray-950"></div>
                      </div>
+                  </a>
+               </div>
+            </header>
+
+            <div class="relative flex h-full w-full items-start justify-center pt-36">
+               <!-- CHAT -->
+               <div id="globalChatContainer" class="flex h-full w-[65%] flex-col gap-y-10 pb-60 transition-all duration-[200ms] ease-out max-md:w-[85%]"></div>
+
+               <!-- PROMPT -->
+               <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center">
+                  <div class="relative top-0 flex h-[180px] w-full justify-center">
+                     <div id="inputContainer" class="relative flex h-[120px] w-[50%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
+                        <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-white ring-1 ring-transparent focus:ring-blue-800 focus:outline-none" accesskey="Enter"></textarea>
+
+                        <!-- BOTTOM PROMPT -->
+                        <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 rounded-xl bg-gradient-to-t from-gray-900 from-60% to-transparent px-4 py-3">
+                           <!-- LEFT ITEMS -->
+                           <div class="pointer-events-auto flex gap-x-0">
+                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Documents">
+                                 <img src="assets\ui\link_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                              </div>
+
+                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Photo">
+                                 <img src="assets\ui\image_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                              </div>
+                           </div>
+
+                           <!-- RIGHT ITEMS -->
+                           <div class="pointer-events-auto flex gap-x-2">
+                              <div class="cursor-pointer rounded-full p-2 hover:bg-gray-800">
+                                 <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0" title="Reset Prompt" />
+                              </div>
+
+                              <div id="dontSendMessage" class="flex h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out" title="Send">
+                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                              </div>
+                              <div
+                                 id="sendMessage"
+                                 class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-sky-500 p-2 transition duration-300 ease-in-out hover:border-sky-400 hover:bg-sky-600/90 hover:shadow-md hover:shadow-sky-400/20"
+                                 title="Send"
+                              >
+                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="pointer-events-none absolute -top-24 -z-[1] h-[120px] w-full bg-gradient-to-t from-gray-950 from-20% to-transparent blur-md"></div>
+
+                     <div class="pointer-events-none absolute bottom-0 -z-[2] h-[160px] w-full bg-gray-950"></div>
                   </div>
                </div>
             </div>
