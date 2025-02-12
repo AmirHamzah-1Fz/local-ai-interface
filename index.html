@@ -12,14 +12,6 @@
       <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
 
       <style>
-         *::before,
-         *::after,
-         * {
-            text-wrap: wrap;
-            text-wrap-mode: wrap;
-            text-wrap-style: pretty;
-         }
-
          *::-webkit-scrollbar {
             display: none;
          }
@@ -45,7 +37,7 @@
             font-family: 'Host Grotesk', sans-serif;
             white-space: wrap; /* Agar teks membungkus ke baris baru jika perlu */
             word-break: break-all;
-            hyphens: auto; /* Enable hyphenation */
+            hyphens: auto;
          }
 
          textarea {
@@ -57,18 +49,18 @@
          }
       </style>
    </head>
-   <body class="bg-gray-950">
+   <body class="bg-white">
       <main class="flex">
          <!-- SIDEBAR -->
-         <aside id="sidebar" class="sticky top-0 left-0 z-[99999] h-screen w-full max-w-[300px] overflow-hidden border-r border-r-gray-800 bg-gray-950 px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
+         <aside id="sidebar" class="top-0 left-0 z-[99999] h-screen w-full max-w-[300px] overflow-hidden border-r border-r-zinc-200 bg-white px-4 py-4 transition-all duration-[500ms] ease-in-out max-lg:max-w-[200px] max-md:hidden">
             <div class="sidebar-header relative flex h-auto w-full items-center justify-between">
-               <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent px-4 hover:border-gray-800 hover:bg-gray-900">
-                  <h2 class="text-2xl text-white">&plus;</h2>
-                  <h2 class="text-white">New Conversation</h2>
+               <div class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg border border-transparent bg-transparent px-4 hover:border-transparent hover:bg-zinc-100">
+                  <h2 class="text-2xl text-black">&plus;</h2>
+                  <h2 class="text-black">New Conversation</h2>
                </div>
 
-               <div id="closeSideBar" class="sticky top-0 right-0 flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full px-4 py-4 transition duration-300 ease-in-out hover:bg-gray-800">
-                  <svg class="shrink-0 fill-gray-600" xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor">
+               <div id="closeSideBar" class="sticky top-0 right-0 flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full px-4 py-4 transition duration-300 ease-in-out hover:bg-zinc-100">
+                  <svg class="shrink-0 fill-zinc-600 invert" xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor">
                      <path
                         d="M480-424 284-228q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536-480l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-424Z"
                      />
@@ -79,76 +71,75 @@
             <!-- CHAT HISTORY -->
             <div class="mt-4 flex h-auto w-full flex-col">
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-zinc-500 hover:border-transparent hover:bg-zinc-100"
                >
-                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert-0" />
                   <p class="nowrap truncate">Pentingnya adaptasi teknologi</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-zinc-500 hover:border-transparent hover:bg-zinc-100"
                >
-                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert-0" />
                   <p class="nowrap truncate">What is React JS?</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-zinc-500 hover:border-transparent hover:bg-zinc-100"
                >
-                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert-0" />
                   <p class="nowrap truncate">How to cumultive growth mindset</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-zinc-500 hover:border-transparent hover:bg-zinc-100"
                >
-                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert-0" />
                   <p class="nowrap truncate">Next.js a React Framework</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-zinc-500 hover:border-transparent hover:bg-zinc-100"
                >
-                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert-0" />
                   <p class="nowrap truncate">Menghadapi tantangan global</p>
                </span>
                <span
-                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-gray-500 hover:border-gray-800 hover:bg-gray-900"
+                  class="flex h-auto max-h-[40px] w-full max-w-full cursor-pointer items-center justify-start gap-3 truncate overflow-auto rounded-full border border-transparent px-3 py-1 text-sm text-zinc-500 hover:border-transparent hover:bg-zinc-100"
                >
-                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert" />
+                  <img src="assets\ui\menu-double.svg" alt="chatHistory" class="h-[24px] w-[18px] invert-0" />
                   <p class="nowrap truncate">Masalah pada aplikasi Flutter</p>
                </span>
             </div>
          </aside>
 
-         <section id="home" class="relative z-[100] min-h-screen w-full overflow-hidden">
-            
+         <section id="home" class="relative z-[100] min-h-screen w-full overflow-hidden bg-white">
             <!-- GREETING -->
             <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center">
-               <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'm Thenders.</h1>
-               <pre class="mt-2 text-lg text-gray-500 max-sm:text-base">How can I help you for today? :)</pre>
+               <h1 class="text-5xl font-bold text-zinc-950 max-sm:text-3xl">Hi, I'm Thenders.</h1>
+               <pre class="mt-2 text-lg text-zinc-500 max-sm:text-base">How can I help you for today? :)</pre>
 
                <!-- QUICK CHAT -->
                <div class="mt-3 flex w-full items-center justify-center gap-2">
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\photo_camera_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <img src="assets\ui\photo_camera_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Photography</p></span
                   >
 
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\code.svg" alt="code" class="invert" />
+                     <img src="assets\ui\code.svg" alt="code" class="invert-0" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Code</p></span
                   >
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\emoji_objects_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <img src="assets\ui\emoji_objects_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Creative Poem</p></span
                   >
                </div>
@@ -158,46 +149,46 @@
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\webhook_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <img src="assets\ui\webhook_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Technology</p></span
                   >
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Security</p></span
                   >
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Finance</p></span
                   >
                   <span
                      style="user-select: none; -webkit-user-drag: none"
                      id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
+                     class="suggestion-chat-container dark: flex cursor-pointer items-center justify-between gap-2 rounded-md border border-transparent bg-zinc-100 px-2 py-1 text-zinc-900 transition duration-300 ease-in-out hover:border-transparent hover:bg-zinc-200/90 hover:text-zinc-900 active:scale-[1.050]"
                   >
-                     <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
+                     <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert" />
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Science</p></span
                   >
                </div>
             </div>
 
             <!-- TOP HEADER -->
-            <header class="fixed top-0 z-[999] flex h-auto w-full items-center justify-center bg-gray-950 px-[1%] py-4">
-               <div class="title flex w-[95%] items-center justify-start gap-x-2">
+            <header class="fixed top-0 left-0 z-[999] flex h-auto w-full items-center justify-between bg-white px-[2%] py-4">
+               <div id="logoAi" class="title flex w-[95%] items-center justify-start gap-x-2 translate-x-1/3 max-md:translate-x-0 transition duration-[600ms] ease-in-out">
                   <a href="#home">
                      <div class="flex h-auto w-auto cursor-pointer gap-x-2">
                         <!-- LOGO -->
                         <div class="logo">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 fill-white" viewBox="0 0 50 50" width="26px" height="26px">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="fill-black" viewBox="0 0 50 50" width="26px" height="26px">
                               <path
                                  d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z"
                               />
@@ -206,11 +197,15 @@
 
                         <!-- VERSION AND AI TITLE -->
                         <div class="heading flex w-full items-center gap-x-2 overflow-x-auto">
-                           <h1 class="text-xl font-bold text-gray-50">Thenders AI</h1>
-                           <span id="versionTag" class="rounded-lg bg-blue-900/60 px-2 py-0 text-blue-500">v0.1.2</span>
+                           <h1 class="text-xl font-bold text-zinc-950">Thenders AI</h1>
+                           <span id="versionTag" class="rounded-lg bg-blue-100 px-2 py-0 font-semibold text-blue-500">v0.1.2</span>
                         </div>
                      </div>
                   </a>
+               </div>
+
+               <div class="flex w-[300px] items-center justify-end gap-2 z-[100]">
+                  <button type="button" class="flex cursor-pointer rounded-lg bg-zinc-900 px-3 py-2 text-sm break-normal text-white">Get started</button>
                </div>
             </header>
 
@@ -220,46 +215,46 @@
 
                <!-- PROMPT -->
                <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center">
-                  <div id="inputContainerss" class="relative z-[100] top-0 flex h-[180px] w-full justify-center">
-                     <div id="inputContainer" class="relative flex h-[120px] w-[50%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
-                        <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-white ring-1 ring-transparent focus:ring-blue-800 focus:outline-none" accesskey="Enter"></textarea>
+                  <div id="inputContainerss" class="relative top-0 z-[100] flex h-[180px] w-full justify-center">
+                     <div id="inputContainer" class="relative flex h-[120px] w-[50%] items-center justify-center rounded-xl border border-transparent bg-zinc-100 transition-all duration-[200ms] ease-out max-md:w-[85%]">
+                        <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-black ring-1 ring-transparent focus:outline-none" accesskey="Enter"></textarea>
 
                         <!-- BOTTOM PROMPT -->
-                        <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 rounded-xl bg-gradient-to-t from-gray-900 from-60% to-transparent px-4 py-3">
+                        <div class="pointer-events-none absolute bottom-0 z-[2] flex w-full items-center justify-between gap-2 rounded-xl bg-gradient-to-t from-zinc-100 from-60% to-transparent px-4 py-3">
                            <!-- LEFT ITEMS -->
                            <div class="pointer-events-auto flex gap-x-0">
-                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Documents">
-                                 <img src="assets\ui\link_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-zinc-300" title="Insert Documents">
+                                 <img src="assets\ui\link_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" class="invert" />
                               </div>
 
-                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-gray-800" title="Insert Photo">
-                                 <img src="assets\ui\image_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" />
+                              <div class="cursor-pointer rounded-full p-2 transition duration-300 ease-in-out hover:bg-zinc-300" title="Insert Photo">
+                                 <img src="assets\ui\image_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="documents" class="invert" />
                               </div>
                            </div>
 
                            <!-- RIGHT ITEMS -->
                            <div class="pointer-events-auto flex gap-x-2">
-                              <div class="cursor-pointer rounded-full p-2 hover:bg-gray-800">
-                                 <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0" title="Reset Prompt" />
+                              <div class="cursor-pointer rounded-full p-2 hover:bg-zinc-300">
+                                 <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0 invert" title="Reset Prompt" />
                               </div>
 
                               <div id="dontSendMessage" class="flex h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out" title="Send">
-                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0 invert-0" />
                               </div>
                               <div
                                  id="sendMessage"
-                                 class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-sky-500 p-2 transition duration-300 ease-in-out hover:border-sky-400 hover:bg-sky-600/90 hover:shadow-md hover:shadow-sky-400/20"
+                                 class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-zinc-950 p-2 transition duration-300 ease-in-out hover:border-zinc-500 hover:bg-zinc-700/90 hover:shadow-md hover:shadow-zinc-400/20"
                                  title="Send"
                               >
-                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0" />
+                                 <img src="assets\ui\Send.svg" alt="Send" class="shrink-0 invert-0" />
                               </div>
                            </div>
                         </div>
                      </div>
 
-                     <div class="pointer-events-none absolute -top-24 -z-[1] h-[120px] w-full bg-gradient-to-t from-gray-950 from-20% to-transparent blur-md"></div>
+                     <div class="pointer-events-none absolute -top-24 -z-[1] h-[120px] w-full bg-gradient-to-t from-zinc-50 from-20% to-transparent blur-md"></div>
 
-                     <div class="pointer-events-none absolute bottom-0 -z-[2] h-[160px] w-full bg-gray-950"></div>
+                     <div class="pointer-events-none absolute bottom-0 -z-[2] h-[160px] w-full bg-white"></div>
                   </div>
                </div>
             </div>
