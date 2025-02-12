@@ -11,8 +11,6 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
 
-      <script src="./js/utils.js"></script>
-
       <style>
          *::before,
          *::after,
@@ -47,15 +45,11 @@
             font-family: 'Host Grotesk', sans-serif;
             white-space: wrap; /* Agar teks membungkus ke baris baru jika perlu */
             word-break: break-all;
-            text-wrap-style: pretty;
+            hyphens: auto; /* Enable hyphenation */
          }
 
          textarea {
             resize: none;
-         }
-
-         textarea::placeholder {
-            color: #4a5565;
          }
 
          .nowrap {
@@ -124,6 +118,7 @@
          </aside>
 
          <section id="home" class="relative z-[100] min-h-screen w-full overflow-hidden">
+            
             <!-- GREETING -->
             <div id="greet" class="absolute z-[10] flex h-screen w-full -translate-y-20 flex-col items-center justify-center">
                <h1 class="text-5xl font-bold text-white max-sm:text-3xl">Hi, I'm Thenders.</h1>
@@ -193,34 +188,6 @@
                      <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Science</p></span
                   >
                </div>
-
-               <!-- QUICK CHAT -->
-               <!-- <div class="mt-3 flex w-full items-center justify-center gap-2">
-                  <span
-                     style="user-select: none; -webkit-user-drag: none"
-                     id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                  >
-                     <img src="assets\ui\fingerprint_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Math</p></span
-                  >
-                  <span
-                     style="user-select: none; -webkit-user-drag: none"
-                     id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                  >
-                     <img src="assets\ui\trending_up_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Physics</p></span
-                  >
-                  <span
-                     style="user-select: none; -webkit-user-drag: none"
-                     id="suggestionChatContainer"
-                     class="suggestion-chat-container flex cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-800 bg-gray-900 px-2 py-1 text-gray-500 transition duration-300 ease-in-out hover:border-gray-700 hover:bg-gray-700/90 hover:text-gray-400 active:scale-[1.050]"
-                  >
-                     <img src="assets\ui\experiment_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="code" class="invert-0" />
-                     <p id="suggestionChat" class="w-full text-sm max-md:text-xs">Web 3</p></span
-                  >
-               </div> -->
             </div>
 
             <!-- TOP HEADER -->
@@ -240,7 +207,7 @@
                         <!-- VERSION AND AI TITLE -->
                         <div class="heading flex w-full items-center gap-x-2 overflow-x-auto">
                            <h1 class="text-xl font-bold text-gray-50">Thenders AI</h1>
-                           <span id="suggestionChatContainer" class="rounded-lg bg-blue-900/60 px-2 py-0 text-blue-500">v0.1.2</span>
+                           <span id="versionTag" class="rounded-lg bg-blue-900/60 px-2 py-0 text-blue-500">v0.1.2</span>
                         </div>
                      </div>
                   </a>
@@ -253,7 +220,7 @@
 
                <!-- PROMPT -->
                <div id="userInputContainer" class="fixed bottom-0 z-[9999] flex h-[180px] w-full justify-center">
-                  <div class="relative top-0 flex h-[180px] w-full justify-center">
+                  <div id="inputContainerss" class="relative z-[100] top-0 flex h-[180px] w-full justify-center">
                      <div id="inputContainer" class="relative flex h-[120px] w-[50%] items-center justify-center rounded-xl border border-gray-800 bg-gray-900 transition-all duration-[200ms] ease-out max-md:w-[85%]">
                         <textarea placeholder="Hello World!" id="userInput" type="text" class="absolute z-[1] h-full w-full rounded-xl px-4 py-4 text-white ring-1 ring-transparent focus:ring-blue-800 focus:outline-none" accesskey="Enter"></textarea>
 
@@ -301,6 +268,6 @@
          <!-- INPUT -->
       </main>
 
-      <script src="./js/script.js"></script>
+      <script type="module" src="./js/script.js"></script>
    </body>
 </html>

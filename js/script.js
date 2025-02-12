@@ -1,3 +1,5 @@
+// import { GoogleGenerativeAI } from '@google/generative-ai';
+
 const suggestionChatContainer = document.querySelectorAll('#suggestionChatContainer');
 
 suggestionChatContainer.forEach((suggestionChatContainer) => {
@@ -45,8 +47,13 @@ function newDate() {
    return getDate.toLocaleString('en-ID', dateFormat);
 }
 
-function createUserChatBox(prompt) {
+async function createUserChatBox(prompt) {
    const globalChatContainer = document.getElementById('globalChatContainer');
+   const userInput = document.getElementById('userInput').value;
+
+   if (userInput === '') {
+      return;
+   }
 
    const userChatBoxContainer = document.createElement('div');
    userChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
@@ -56,15 +63,7 @@ function createUserChatBox(prompt) {
 
    const userMessage = document.createElement('pre');
    userMessage.classList.add('max-w-[60ch]', 'text-base', 'max-sm:text-sm', 'leading-relaxed', 'font-thin', 'text-gray-50');
-
-   const userInput = document.getElementById('userInput').value;
-   prompt = userInput;
-
-   if (userInput === '') {
-      return;
-   }
-
-   userMessage.textContent = `${prompt}`;
+   userMessage.textContent = userInput;
 
    const timeStamp = document.createElement('p');
    timeStamp.classList.add('text-end', 'text-gray-500', 'mt-2', 'text-xs', 'px-3');
@@ -74,6 +73,101 @@ function createUserChatBox(prompt) {
    userChatBoxContainer.appendChild(userChatBox);
    userChatBoxContainer.appendChild(timeStamp);
    userChatBox.appendChild(userMessage);
+
+   return userInput; // Mengembalikan input user untuk digunakan sebagai prompt
+}
+
+async function getAiRes(prompt) {
+   try {
+      const globalChatContainer = document.getElementById('globalChatContainer');
+
+      // Buat elemen loading
+      const loadingContainer = document.createElement('div');
+      loadingContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
+      loadingContainer.innerHTML = `
+         <div class="h-auto w-auto max-w-[85%] self-start rounded-xl border border-gray-800 bg-gray-900 px-3 py-2">
+            <div class="flex items-center gap-2">
+               <div class="h-2 w-2 animate-pulse rounded-full bg-gray-600"></div>
+               <div class="h-2 w-2 animate-pulse rounded-full bg-gray-600"></div>
+               <div class="h-2 w-2 animate-pulse rounded-full bg-gray-600"></div>
+            </div>
+         </div>
+      `;
+      globalChatContainer.appendChild(loadingContainer);
+
+      try {
+         const genAI = new GoogleGenerativeAI('AIzaSyC3I9aljFP6xdpLyugK91mR2ofMHvpQfIM'); // Ganti dengan API key Anda
+         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+         const result = await model.generateContent(prompt);
+         const response = result.response;
+         const text = await response.text();
+
+         console.log('AI Response:', text);
+
+         loadingContainer.remove(); // Hapus loading
+
+         // Buat elemen untuk respons AI
+         const aiChatBoxContainer = document.createElement('div');
+         aiChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
+
+         const aiChatBox = document.createElement('div');
+         aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[85%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2');
+
+         const aiMessage = document.createElement('pre');
+         aiMessage.classList.add('max-w-[60ch]', 'text-base', 'max-sm:text-sm', 'leading-relaxed', 'font-thin', 'text-gray-300');
+         aiMessage.textContent = text;
+
+         const timeStamp = document.createElement('p');
+         timeStamp.classList.add('text-start', 'text-gray-500', 'mt-2', 'text-xs', 'px-3');
+         timeStamp.textContent = `Thenders, ${newDate()}`;
+
+         // Tambahkan elemen ke DOM
+         aiChatBoxContainer.appendChild(aiChatBox);
+         aiChatBox.appendChild(aiMessage);
+         aiChatBoxContainer.appendChild(timeStamp);
+         globalChatContainer.appendChild(aiChatBoxContainer);
+
+         // Scroll ke bawah
+         window.scrollTo(0, document.body.scrollHeight);
+      } catch (aiError) {
+         console.error('AI Error:', aiError);
+
+         setTimeout(() => {
+            loadingContainer.classList.add('transition', 'duration-300', 'ease-in-out', 'opacity-0');
+            setTimeout(() => {
+               loadingContainer.remove();
+            }, 10);
+         }, 2000);
+         throw new Error(`Error saat menghasilkan respons: ${aiError.message}`);
+      }
+   } catch (error) {
+      console.error('Error:', error);
+
+      // Tampilkan pesan error ke user
+      setTimeout(() => {
+         const globalChatContainer = document.getElementById('globalChatContainer');
+         const errorContainer = document.createElement('div');
+         errorContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col', 'transition', 'duration-200', 'ease-out', '-translate-y-3', 'opacity-[0%]');
+
+         setTimeout(() => {
+            errorContainer.classList.remove('opacity-[0%]');
+            errorContainer.classList.add('opacity-[100%]');
+            errorContainer.classList.remove('-translate-y-3');
+            errorContainer.classList.add('-translate-y-0');
+            window.scrollTo(0, document.body.scrollHeight);
+         }, 10);
+
+         errorContainer.innerHTML = `
+         <div class="h-auto w-auto max-w-[85%] self-start rounded-xl border border-red-800 bg-red-900/50 px-3 py-2">
+         <pre class="max-w-[60ch] text-base max-sm:text-sm leading-relaxed font-thin text-red-300">
+         Maaf, fitur ini sedang dalam tahap pengembangan. Silahkan coba kembali di lain waktu. :(
+         </pre>
+         </div>
+         `;
+         globalChatContainer.appendChild(errorContainer);
+      }, 2000);
+   }
 }
 
 function sendMessage() {
@@ -81,61 +175,45 @@ function sendMessage() {
    const dontSendMessage = document.getElementById('dontSendMessage');
    const userInput = document.getElementById('userInput');
 
-   userInput.addEventListener('input', function () {
-      sendMessage.classList.remove('hidden');
-      dontSendMessage.classList.add('hidden');
-
-      if (userInput.value === '') {
+   // Fungsi untuk mengatur tampilan tombol berdasarkan isi input
+   function updateButtonVisibility() {
+      if (userInput.value.trim() === '') {
          dontSendMessage.classList.remove('hidden');
          sendMessage.classList.add('hidden');
+      } else {
+         sendMessage.classList.remove('hidden');
+         dontSendMessage.classList.add('hidden');
       }
-   });
+   }
 
-   sendMessage.addEventListener('click', () => {
-      const sendMessage = document.getElementById('sendMessage');
-      const userInput = document.getElementById('userInput');
-      const dontSendMessage = document.getElementById('dontSendMessage');
+   // Event listener untuk input
+   userInput.addEventListener('input', updateButtonVisibility);
+   // Event listener untuk tombol kirim
+   sendMessage.addEventListener('click', async () => {
+      if (userInput.value.trim() === '') return;
 
       document.getElementById('greet').classList.add('hidden');
-      window.scrollTo(0, document.body.scrollHeight);
 
-      createUserChatBox();
+      const prompt = await createUserChatBox();
       userInput.value = '';
-      dontSendMessage.classList.remove('hidden');
-      sendMessage.classList.add('hidden');
+      updateButtonVisibility();
 
-      setTimeout(() => {
-         getAiRes(aiRes);
-         window.scrollTo(0, document.body.scrollHeight);
-      }, 1000);
+      await getAiRes(prompt);
+      window.scrollTo(0, document.body.scrollHeight);
+   });
+
+   // Event listener untuk Enter key
+   userInput.addEventListener('keypress', async (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+         e.preventDefault();
+         if (userInput.value.trim() !== '') {
+            sendMessage.click();
+         }
+      }
    });
 }
 
-function getAiRes() {
-   const globalChatContainer = document.getElementById('globalChatContainer');
-
-   const aiChatBoxContainer = document.createElement('div');
-   aiChatBoxContainer.classList.add('flex', 'h-auto', 'w-full', 'flex-col');
-
-   const aiChatBox = document.createElement('div');
-   aiChatBox.classList.add('h-auto', 'w-auto', 'max-w-[85%]', 'self-start', 'rounded-xl', 'border', 'border-gray-800', 'bg-gray-900', 'px-3', 'py-2', 'shadow-lg');
-
-   const aiMessage = document.createElement('pre');
-   aiMessage.classList.add('max-w-[60ch]', 'text-base', 'max-sm:text-sm', 'leading-relaxed', 'font-thin', 'text-gray-100');
-
-   aiMessage.textContent = `${aiRes}`;
-
-   const timeStamp = document.createElement('p');
-   timeStamp.classList.add('text-start', 'text-gray-500', 'mt-2', 'text-xs', 'px-3');
-   timeStamp.textContent = `${newDate()}`;
-
-   globalChatContainer.appendChild(aiChatBoxContainer);
-   aiChatBoxContainer.appendChild(aiChatBox);
-   aiChatBoxContainer.appendChild(timeStamp);
-   aiChatBox.appendChild(aiMessage);
-}
-
-let aiRes = `Sorry, the feature for chat is under development. Please still patience and wait for the next updates.`;
-
-closeSideBar();
-sendMessage();
+document.addEventListener('DOMContentLoaded', () => {
+   closeSideBar();
+   sendMessage();
+});
