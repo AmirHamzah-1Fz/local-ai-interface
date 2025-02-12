@@ -17,6 +17,7 @@ suggestionChatContainer.forEach((suggestionChatContainer) => {
 });
 
 function closeSideBar() {
+   const logoAi = document.getElementById('logoAi');
    const closeSideBar = document.getElementById('closeSideBar');
    const sidebar = document.getElementById('sidebar');
    const globalChatContainer = document.getElementById('globalChatContainer');
@@ -24,6 +25,10 @@ function closeSideBar() {
    closeSideBar.addEventListener('click', () => {
       sidebar.classList.toggle('w-0');
       sidebar.classList.toggle('w-full');
+      setTimeout(() => {
+         logoAi.classList.toggle('translate-x-1/3')
+         logoAi.classList.toggle('translate-x-0')
+      }, 100);
 
       if (sidebar.classList.value.includes('w-0')) {
          sidebar.classList.remove('px-4');
@@ -159,8 +164,8 @@ async function getAiRes(prompt) {
          }, 10);
 
          errorContainer.innerHTML = `
-         <div class="h-auto w-auto max-w-[85%] self-start rounded-xl border border-red-800 bg-red-900/50 px-3 py-2">
-         <pre class="max-w-[60ch] text-base max-sm:text-sm leading-relaxed font-thin text-red-300">
+         <div class="h-auto w-auto max-w-[85%] self-start rounded-xl bg-red-100 px-3 py-2">
+         <pre class="max-w-[60ch] text-base max-sm:text-sm leading-relaxed font-thin text-red-700">
          Maaf, fitur ini sedang dalam tahap pengembangan. Silahkan coba kembali di lain waktu. :(
          </pre>
          </div>
