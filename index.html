@@ -207,13 +207,13 @@
                   </a>
                </div>
 
-               <div class="z-[100] flex w-[300px] items-center justify-end gap-2">
+               <div class="max-sm:hidden z-[100] flex w-[300px] items-center justify-end gap-2">
                   <button type="button" class="flex cursor-pointer rounded-lg bg-zinc-900 px-3 py-2 text-sm break-normal text-white">Get started</button>
                </div>
             </header>
 
+            <!-- CHAT -->
             <div class="relative flex h-full w-full items-start justify-center pt-36">
-               <!-- CHAT -->
                <div id="globalChatContainer" class="flex h-full w-[65%] flex-col gap-y-10 pb-60 transition-all duration-[200ms] ease-out max-md:w-[85%]"></div>
 
                <!-- PROMPT -->
@@ -241,12 +241,12 @@
                                  <img src="assets\ui\refresh_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="refresh" class="shrink-0 invert" title="Reset Prompt" />
                               </div>
 
-                              <div id="dontSendMessage" class="hidden h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out" title="Send">
+                              <div id="dontSendMessage" class="h-auto w-auto shrink-0 cursor-not-allowed items-center justify-center rounded-full border border-transparent bg-neutral-500 p-2 transition duration-300 ease-in-out" title="Send">
                                  <img src="assets\ui\Send.svg" alt="Send" class="shrink-0 invert-0" />
                               </div>
                               <div
                                  id="sendMessage"
-                                 class="h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-zinc-950 p-2 transition duration-300 ease-in-out hover:border-zinc-500 hover:bg-zinc-700/90 hover:shadow-md hover:shadow-zinc-400/20"
+                                 class="hidden h-auto w-auto shrink-0 cursor-pointer items-center justify-center rounded-full border border-transparent bg-zinc-950 p-2 transition duration-300 ease-in-out hover:border-zinc-500 hover:bg-zinc-700/90 hover:shadow-md hover:shadow-zinc-400/20"
                                  title="Send"
                               >
                                  <img src="assets\ui\Send.svg" alt="Send" class="shrink-0 invert-0" />
